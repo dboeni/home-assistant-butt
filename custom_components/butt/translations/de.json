@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "BUTT Einrichtung",
+        "description": "Konfiguriere deine Butt-Integration",
+        "data": {
+          "host": "IP Adresse",
+          "name": "Name",
+          "port": "TCP Port",
+          "scan_interval": "Abfrage der Sensoren in Sekunden"
+        }
+      }
+    },
+    "error": {
+      "already_configured": "Gerät ist bereits konfiguriert"
+    },
+    "abort": {
+      "already_configured": "Gerät ist bereits konfiguriert"
+    }
+  }
+}
