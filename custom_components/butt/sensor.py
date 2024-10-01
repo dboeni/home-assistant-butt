@@ -52,7 +52,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
 
 
 class ButtSensor(CoordinatorEntity, SensorEntity):
-    """Representation of an Ampere Storage Pro Modbus sensor."""
+    """Representation of an Butt sensor."""
 
     def __init__(
         self,
@@ -176,19 +176,3 @@ SENSOR_TYPES: dict[str, list[ButtSensorEntityDescription]] = {
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
 }
-
-# Name                              Datatyp         Icon                Example
-# Verbunden/connected               bool            connect             1
-# Verbinde/connecting               bool            connect             0
-# Aufnahme/recording                bool            record              1
-# Signal vorhanden/signal present   bool            signal              1
-# Signal abwesend/signal absent     bool            signal-off          0
-# Stream Sekunden/stream seconds    uint seconds    timer-music         10
-# Stream kBytes/stream kBytes       uint            speedometer         164
-# Aufnahme Sekunden/record seconds  uint seconds    timer-music         38
-# Aufnahme kBytes/record kBytes     uint            speedometer         3581
-# Lautstärke links/volume left      int             volume-high         -90.0
-# Lautstärke rechts/volume right    int             volume-high         -90.0
-# song                              string          music               Stanley Clarke Trio - Under the Bridge
-# Aufnahmepfad/record path          string          file-music          /home/butt/recordings/recording_20220312.flac
-# Zuhörer/listeners                 int             account-voice       -1

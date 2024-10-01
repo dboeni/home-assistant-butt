@@ -53,7 +53,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
 
 
 class ButtBinarySensor(CoordinatorEntity, BinarySensorEntity):
-    """Representation of an Ampere Storage Pro Modbus sensor."""
+    """Representation of an Butt sensor."""
 
     def __init__(
         self,
