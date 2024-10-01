@@ -39,14 +39,14 @@ async def async_setup_entry(hass, entry, async_add_entities):
     }
 
     entities = []
-    for sensor_description in SENSOR_TYPES.values():
-        sensor = ButtBinarySensor(
+    for binary_sensor_description in BINARY_SENSOR_TYPES.values():
+        binary_sensor = ButtBinarySensor(
             hub_name,
             hub,
             device_info,
-            sensor_description,
+            binary_sensor_description,
         )
-        entities.append(sensor)
+        entities.append(binary_sensor)
 
     async_add_entities(entities)
     return True
@@ -93,7 +93,7 @@ class ButtBinarySensorEntityDescription(BinarySensorEntityDescription):
     """A class that describes Zoonneplan sensor entities."""
 
 
-SENSOR_TYPES: dict[str, list[ButtBinarySensorEntityDescription]] = {
+BINARY_SENSOR_TYPES: dict[str, list[ButtBinarySensorEntityDescription]] = {
     "Connected": ButtBinarySensorEntityDescription(
         name="Connected",
         key="connected",
