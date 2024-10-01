@@ -84,6 +84,14 @@ class ButtHub(DataUpdateCoordinator[dict]):
 
         return {**data}
 
+    async def connect(self):
+        _LOGGER.info("Connect...")
+        await self.async_send_command(b"\x01", self.host, self.port)
+
+    async def disconnect(self):
+        _LOGGER.info("Disconnect...")
+        await self.async_send_command(b"\x02", self.host, self.port)
+
     async def start_record(self):
         _LOGGER.info("Start recording...")
         await self.async_send_command(b"\x03", self.host, self.port)
