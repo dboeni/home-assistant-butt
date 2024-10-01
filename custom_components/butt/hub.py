@@ -149,7 +149,6 @@ class ButtHub(DataUpdateCoordinator[dict]):
             data["streamseconds"] = stream_seconds
             data["streamkbytes"] = stream_kByte
             data["recordseconds"] = record_seconds
-            data["recordsecondsformat"] = self.format_seconds(record_seconds)
             data["recordkbytes"] = record_kByte
             data["volumeleft"] = volume_left * 0.1
             data["volumeright"] = volume_right * 0.1
@@ -159,11 +158,3 @@ class ButtHub(DataUpdateCoordinator[dict]):
             data["version"] = version
 
         return data
-
-    def format_seconds(self, sec) -> str:
-        # Berechne die Stunden und Minuten aus den Sekunden
-        minutes = sec // 60
-        seconds = sec % 60
-
-        # Gib das Ergebnis im Format HH:MM zurück
-        return f"{minutes:02}:{seconds:02}"

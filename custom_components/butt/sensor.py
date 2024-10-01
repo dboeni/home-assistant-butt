@@ -118,12 +118,6 @@ SENSOR_TYPES: dict[str, list[ButtSensorEntityDescription]] = {
         native_unit_of_measurement=UnitOfTime.SECONDS,
         entity_registry_enabled_default=True,
     ),
-    "RecordSecondsFormat": ButtSensorEntityDescription(
-        name="Record Seconds Format",
-        key="recordsecondsformat",
-        icon="mdi:timer-music",
-        entity_registry_enabled_default=True,
-    ),
     "RecordKBytes": ButtSensorEntityDescription(
         name="Record kBytes",
         key="recordkbytes",
