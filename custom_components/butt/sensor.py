@@ -165,9 +165,9 @@ SENSOR_TYPES: dict[str, list[ButtSensorEntityDescription]] = {
         icon="mdi:information-outline",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
-    "IpAdress": ButtSensorEntityDescription(
-        name="IP Adress",
-        key="ipadress",
+    "IpAddress": ButtSensorEntityDescription(
+        name="IP Address",
+        key="ipaddress",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
     "Port": ButtSensorEntityDescription(
