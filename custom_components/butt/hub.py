@@ -53,7 +53,7 @@ class ButtHub(DataUpdateCoordinator[dict]):
         with self._lock:
             self._client.close()
 
-    async def async_read_tcp(self, command, host, port):
+    async def async_send_command(self, command, host, port):
         data = None
         try:
             reader, writer = await asyncio.open_connection(host, port)
@@ -84,6 +84,14 @@ class ButtHub(DataUpdateCoordinator[dict]):
 
         return {**data}
 
+    async def start_record(self):
+        _LOGGER.info("Start recording...")
+        await self.async_send_command(b"\x03", self.host, self.port)
+
+    async def stop_record(self):
+        _LOGGER.info("Stop recording...")
+        await self.async_send_command(b"\x04", self.host, self.port)
+
     def read_data(self) -> dict:
 
         data = {}
@@ -91,7 +99,7 @@ class ButtHub(DataUpdateCoordinator[dict]):
         data["ipadress"] = self.host
         data["port"] = self.port
 
-        result = asyncio.run(self.async_read_tcp(b"\x05", self.host, self.port))
+        result = asyncio.run(self.async_send_command(b"\x05", self.host, self.port))
 
         if len(result) == 0:
             return data
