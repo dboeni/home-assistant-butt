@@ -100,6 +100,10 @@ class ButtHub(DataUpdateCoordinator[dict]):
         _LOGGER.info("Stop recording...")
         await self.async_send_command(b"\x04", self.host, self.port)
 
+    async def split_record(self):
+        _LOGGER.info("Split recording...")
+        await self.async_send_command(b"\x06", self.host, self.port)
+
     def read_data(self) -> dict:
 
         data = {}

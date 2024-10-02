@@ -119,4 +119,9 @@ BUTTON_TYPES: dict[str, list[ButtButtonEntityDescription]] = {
         key="stoprecord",
         buttonFunction=lambda hub: hub.stop_record(),
     ),
+    "SplitRecord": ButtButtonEntityDescription(
+        name="Split Record",
+        key="splitrecord",
+        buttonFunction=lambda hub: hub.split_record(),
+    ),
 }
