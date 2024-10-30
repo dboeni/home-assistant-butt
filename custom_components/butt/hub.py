@@ -56,19 +56,22 @@ class ButtHub(DataUpdateCoordinator[dict]):
     async def async_send_command(self, command, host, port):
         data = None
         try:
-            reader, writer = await asyncio.open_connection(host, port)
+            conn = asyncio.open_connection(host, port)
+            reader, writer = await asyncio.wait_for(conn, 3)
+
             writer.write(command)
             await writer.drain()
 
-            # Lese das empfangene Byte-Array (hier ein Beispiel für 8 Bytes)
             data = await reader.read(1024)
 
-            # Schließe den Writer
             writer.close()
             await writer.wait_closed()
-
+        except asyncio.TimeoutError as e:
+            _LOGGER.error(f"Timout error! BUTT Server ({self.name}) is unreachable.")
         except Exception as e:
-            _LOGGER.error("Reading data failed! BUTT Server is unreachable.")
+            _LOGGER.error(
+                f"Reading data failed! BUTT Server ({self.name}) is unreachable."
+            )
 
         if data is None:
             data = b""
