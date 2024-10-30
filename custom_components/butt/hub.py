@@ -144,7 +144,7 @@ class ButtHub(DataUpdateCoordinator[dict]):
 
         if status_extended_packet:
             (
-                version,  # uint16 -> H 2
+                packet_version,  # uint16 -> H 2
                 volume_left,  # int16 h 2
                 volume_right,  # int16 h 2
                 stream_seconds,  # uint32 -> I 4
@@ -178,6 +178,6 @@ class ButtHub(DataUpdateCoordinator[dict]):
             data["song"] = song[0].rstrip(b"\x00").decode("utf-8")
             data["recordpath"] = rec_path[0].rstrip(b"\x00").decode("utf-8")
             data["listeners"] = listeners
-            data["version"] = version
+            data["packetversion"] = packet_version
 
         return data

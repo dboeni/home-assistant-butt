@@ -159,9 +159,9 @@ SENSOR_TYPES: dict[str, list[ButtSensorEntityDescription]] = {
         icon="mdi:account-voice",
         state_class=SensorStateClass.MEASUREMENT,
     ),
-    "Version": ButtSensorEntityDescription(
-        name="Version",
-        key="version",
+    "PacketTVersion": ButtSensorEntityDescription(
+        name="Packet Version",
+        key="packetversion",
         icon="mdi:information-outline",
         entity_category=EntityCategory.DIAGNOSTIC,
     ),
