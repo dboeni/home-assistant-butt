@@ -111,7 +111,7 @@ class ButtHub(DataUpdateCoordinator[dict]):
 
         data = {}
 
-        data["ipadress"] = self.host
+        data["ipaddress"] = self.host
         data["port"] = self.port
 
         result = asyncio.run(self.async_send_command(b"\x05", self.host, self.port))
