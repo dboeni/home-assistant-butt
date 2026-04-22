@@ -18,5 +18,18 @@
     "abort": {
       "already_configured": "Gerät ist bereits konfiguriert"
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "BUTT Konfiguration",
+        "description": "Konfiguriere deine Butt-Integration",
+        "data": {
+          "host": "IP-Adresse",
+          "port": "TCP-Port",
+          "scan_interval": "Abfrage der Sensoren in Sekunden"
+        }
+      }
+    }
   }
 }

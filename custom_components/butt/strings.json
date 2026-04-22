@@ -18,5 +18,18 @@
     "abort": {
       "already_configured": "Device is already configured"
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Configure BUTT",
+        "description": "Configure your Butt integration",
+        "data": {
+          "host": "IP address",
+          "port": "TCP port",
+          "scan_interval": "Query the sensors in seconds"
+        }
+      }
+    }
   }
 }
